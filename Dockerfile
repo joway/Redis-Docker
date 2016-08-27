@@ -3,6 +3,8 @@ FROM ubuntu:14.04
 
 # Install Redis.
 RUN \
+  apt-get update && \
+  apt-get -y install wget && \
   cd /tmp && \
   wget http://download.redis.io/redis-stable.tar.gz && \
   tar xvzf redis-stable.tar.gz && \
