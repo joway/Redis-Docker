@@ -13,11 +13,9 @@ RUN \
   make install && \
   cp -f src/redis-sentinel /usr/local/bin && \
   mkdir -p /etc/redis && \
-  rm -rf /tmp/redis-stable* && \
+  rm -rf /tmp/redis-stable*
 
-WORKDIR /etc/redis
-
-ADD . .
+ADD . /etc/redis/
 
 # Define mountable directories.
 VOLUME ["/data"]
