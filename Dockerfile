@@ -13,12 +13,14 @@ RUN \
   make install && \
   cp -f src/redis-sentinel /usr/local/bin && \
   mkdir -p /etc/redis && \
+  mkdir -p /var/log/redis && \
+  touch /var/log/redis/redis.log && \
   rm -rf /tmp/redis-stable*
 
 ADD . /etc/redis/
 
 # Define mountable directories.
-VOLUME ["/data"]
+VOLUME ["/data", "/var/log/redis/"]
 
 # Define working directory.
 WORKDIR /data
